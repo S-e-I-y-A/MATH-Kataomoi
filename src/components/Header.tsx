@@ -19,6 +19,10 @@ const Header: React.FC<HeaderProps> = ({ onSearch }) => {
         background: "#eee",
         display: "flex",
         justifyContent: "center",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
       }}
     >
       <Box
