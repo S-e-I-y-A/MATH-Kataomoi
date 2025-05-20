@@ -1,11 +1,10 @@
 // Header.tsx
 import "./Header.css";
-import React from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
+import * as React from "react";
+import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
-import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
+import { Paper } from "@mui/material";
 
 type HeaderProps = {
   onSearch: (value: string) => void; // ← これが型！
@@ -15,37 +14,35 @@ const Header: React.FC<HeaderProps> = ({ onSearch }) => {
   return (
     <header
       style={{
-        padding: "1rem",
+        padding: "15px 0px",
         background: "#eee",
         justifyContent: "center",
-
+        position: "sticky",
         top: 0,
+        margin: 0,
         left: 0,
         width: "100%",
       }}
     >
-      <Box
+      <Paper
         component="form"
-        sx={{ "& > :not(style)": { m: 1, width: "25ch" } }}
-        noValidate
-        autoComplete="off"
+        sx={{
+          p: "2px 4px",
+          mx: 5,
+          display: "flex",
+          alignItems: "center",
+          width: 300,
+        }}
       >
-        <TextField
-          id="filled-basic"
-          label="検索"
-          variant="filled"
-          onChange={(e) => onSearch(e.target.value)}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <IconButton style={{ cursor: "text" }}>
-                  <SearchIcon />
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
+        <InputBase
+          sx={{ ml: 1, flex: 1 }}
+          placeholder="Search"
+          inputProps={{ "aria-label": "search google maps" }}
         />
-      </Box>
+        <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
+          <SearchIcon />
+        </IconButton>
+      </Paper>
     </header>
   );
 };
