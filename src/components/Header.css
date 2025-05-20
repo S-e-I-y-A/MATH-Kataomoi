@@ -4,3 +4,7 @@
   color: white;
   padding: 1rem;
 }
+
+.MuiIconButton-root {
+  cursor: text;
+}
