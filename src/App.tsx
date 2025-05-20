@@ -1,6 +1,9 @@
 import "./App.css";
 import React, { useState } from "react";
+
 import Header from "./components/Header";
+import ListBox from "./components/ListBox";
+import Footer from "./Footer";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -12,7 +15,8 @@ function App() {
   return (
     <>
       <Header onSearch={handleSearch} />
-      {/* 他のコンテンツ */}
+      <ListBox />
+      <Footer />
     </>
   );
 }

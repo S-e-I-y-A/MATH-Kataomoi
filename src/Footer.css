@@ -1,0 +1,29 @@
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #f0f0f0;
+  text-align: center;
+  padding: 10px 0;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+  font-size: 14px;
+}
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+}
+footer ul li {
+  display: inline;
+  margin: 0 10px;
+}
+footer .social-media {
+  margin-top: 5px;
+}
+footer .social-media a {
+  margin: 0 10px;
+  color: #333;
+  text-decoration: none;
+}
