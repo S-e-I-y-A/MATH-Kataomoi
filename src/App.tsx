@@ -1,10 +1,12 @@
-import "./App.css";
+import './App.css'
+import ListBox from './components/ListBox'
 import Footer from "./Footer";
 
 function App() {
   return (
     <>
-      <Footer />
+    <ListBox />
+    <Footer />
     </>
   );
 }
