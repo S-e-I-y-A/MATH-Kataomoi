@@ -17,9 +17,8 @@ const Header: React.FC<HeaderProps> = ({ onSearch }) => {
       style={{
         padding: "1rem",
         background: "#eee",
-        display: "flex",
         justifyContent: "center",
-        position: "fixed",
+
         top: 0,
         left: 0,
         width: "100%",
