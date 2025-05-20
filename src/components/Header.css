@@ -1,0 +1,10 @@
+/* Header.css */
+.header {
+  background-color: #222;
+  color: white;
+  padding: 1rem;
+}
+
+.MuiIconButton-root {
+  cursor: text;
+}
