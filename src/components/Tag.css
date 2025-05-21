@@ -1,0 +1,13 @@
+.h2 {
+  font-size: 10px;
+  color: red !important;
+  background: yellow !important;
+  border: 2px solid lime;
+}
+
+.h2 {
+  font-size: 10px;
+  color: hotpink;
+  background-color: black;
+  border: 2px solid lime;
+}
