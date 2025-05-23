@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Tag.css';
+import { Paper,Tooltip,IconButton } from '@mui/material';
+import {Add,Delete} from '@mui/icons-material'
 
 const Tag: React.FC = () => {
   const [tags, setTags] = useState<string[]>(() => {
@@ -10,6 +12,7 @@ const Tag: React.FC = () => {
 
   useEffect(() => {
     localStorage.setItem('tags', JSON.stringify(tags));
+    console.log("test");
   }, [tags]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -18,31 +21,36 @@ const Tag: React.FC = () => {
     if (trimmed === '') return;
     setTags(prev => [...prev, trimmed]);
     setInput('');
+    window.location.reload();
   };
 
   return (
-    <div>
-    <h2 style={{ fontSize: '17px', color: 'white' }}>
-        追加したいタグを入力してください
-    </h2>
-
+    <Paper sx={{
+      width:"20%",
+      margin:0,
+      left: "50%",
+      top: "50%",
+      }}>
       <form onSubmit={handleSubmit}>
         <input
           className="input"
           type="text"
-          placeholder="タグを入力"
+          placeholder="Todoを入力"
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
-        <button type="submit">追加</button>
+        <Tooltip title="Add">
+                <IconButton type="submit">
+                    <Add />
+                </IconButton>
+            </Tooltip>
+            <Tooltip title="Delete">
+                <IconButton>
+                    <Delete />
+                </IconButton>
+            </Tooltip>
       </form>
-      <ul>
-        {tags.map((tag, index) => (
-          <li key={index}>{tag}
-          </li>
-        ))}
-      </ul>
-    </div>
+    </Paper>
   );
 };
 
