@@ -17,7 +17,6 @@ const Footer = () => {
       </ul>
       <div className="social-media">
         <a href="https://instagram.com">instagram</a>
-        <a href="https://x.com">X</a>
       </div>
     </footer>
   );
