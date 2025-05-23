@@ -15,9 +15,7 @@ const Footer = () => {
           <a href="#sitemap">サイトマップ</a>
         </li>
       </ul>
-      <div className="social-media">
-        <a href="https://instagram.com">instagram</a>
-      </div>
+      <div className="social-media"></div>
     </footer>
   );
 };
