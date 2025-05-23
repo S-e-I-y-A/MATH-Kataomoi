@@ -22,9 +22,9 @@ const Tag: React.FC = () => {
 
   return (
     <div>
-     <h2 style={{ fontSize: '17px', color: 'white' }}>
-  追加したいタグを入力してください
-</h2>
+    <h2 style={{ fontSize: '17px', color: 'white' }}>
+        追加したいタグを入力してください
+    </h2>
 
       <form onSubmit={handleSubmit}>
         <input
