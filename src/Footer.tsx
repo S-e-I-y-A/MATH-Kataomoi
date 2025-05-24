@@ -1,21 +1,23 @@
+import React from "react";
 import "./Footer.css";
+import logo from "../public/logo.png";
 
 const Footer = () => {
   return (
-    <footer>
-      <div>
-        <img className="kumonosu" src="/public/kumonosu.png" />
-      </div>
-      <div className="names">
-        <p>MATH-KATAOMOI</p>
-        <ul>
-          <li>JOU</li>
-          <li>SEIYA</li>
-          <li>KAINE</li>
-          <li>RISA</li>
+    <footer className="footer">
+      <div className="footer-center">
+        <img src={logo} alt="ロゴ" className="footer-logo" />
+        <ul className="names">
+          <li>
+            <p>MATH-KATAOMOI</p>
+            <li>JOU</li>
+            <li>SEIYA</li>
+            <li>KAINE</li>
+            <li>RISA</li>
+          </li>
         </ul>
       </div>
-      <div className="social-media"></div>
+      {/* <ul className="social-media"></ul> */}
     </footer>
   );
 };
