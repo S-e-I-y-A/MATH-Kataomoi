@@ -25,3 +25,10 @@ footer .social-media a {
   color: #333;
   text-decoration: none;
 }
+.kumonosu {
+  width: 7%;
+  float: left;
+  display: flex;
+  align-items: center;
+  gap: 0px;
+}
