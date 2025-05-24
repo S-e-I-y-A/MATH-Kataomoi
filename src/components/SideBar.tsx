@@ -15,42 +15,20 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const SideBar: React.FC = () => {
-  const [input, setInput] = useState('');
   const [items, setItems] = useState<string[]>([]);
 
   // 初回マウント時にローカルストレージから配列を取得
   useEffect(() => {
-    const saved = localStorage.getItem('SideBar');
+    const saved = localStorage.getItem('tags');
     if (saved) {
       setItems(JSON.parse(saved));
     }
   }, []);
 
-  // 追加ボタン押した時の処理
-  const handleAdd = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!input.trim()) return; // 空欄スキップ
-    const newItems = [...items, input];
-    setItems(newItems);
-    localStorage.setItem('SideBar', JSON.stringify(newItems));
-    setInput('');
-  };
-
   return (
-    <div>
-      {/* === ここがINPUTタブ部分！ === */}
-      <form onSubmit={handleAdd} style={{ marginBottom: 16 }}>
-        <input
-          type="text"
-          value={input}
-          onChange={e => setInput(e.target.value)}
-          placeholder="追加するタグを入力"
-          style={{ padding: 8, fontSize: 16, marginRight: 8 }}
-        />
-        <button type="submit">追加</button>
-      </form>
-      {/* =========================== */}
-
+    <div style={{width:"20%",
+      margin:"20px"
+    }}>
       {/* タグの横並び表示 */}
       <Stack direction="row" spacing={2} flexWrap="wrap">
         {items.map((tag, idx) => (
