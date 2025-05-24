@@ -1,9 +1,12 @@
 import "./App.css";
-import React, { useState } from "react";
-
+import { useState } from "react";
 import Header from "./components/Header";
 import ListBox from "./components/ListBox";
 import Footer from "./Footer";
+import Add from "./components/Add";
+import SideBar from "./components/SideBar";
+
+
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -15,7 +18,13 @@ function App() {
   return (
     <>
       <Header onSearch={handleSearch} />
-      <ListBox />
+      <div className="main">
+      <SideBar />
+      <div className="box">
+        <Add />
+        <ListBox />
+      </div>
+      </div>
       <Footer />
     </>
   );
