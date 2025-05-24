@@ -6,10 +6,22 @@ import Buton from './Buton'
 
 
 const ListBox: React.FC = () => {
+  const [Title] = useState<string[]>(() => {
+    const saved = localStorage.getItem('Title');
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  const [Detail] = useState<string[]>(() => {
+    const saved = localStorage.getItem('Detail');
+    return saved ? JSON.parse(saved) : [];
+  });
+
   const [tags] = useState<string[]>(() => {
     const saved = localStorage.getItem('tags');
     return saved ? JSON.parse(saved) : [];
   });
+
+  const listing = [Title,Detail,tags];
 
 
   return (
@@ -28,24 +40,25 @@ const ListBox: React.FC = () => {
         alignItems:'center',
         flex:'wrap',
       }}>
-        {tags.map((tag) => (
-          <Card sx={{
+        {Title.map((title, idx) => (
+          <Card key={idx} sx={{
             m:2,px:4,py:2,width:"40%"
           }}>
-          <div style={{
-            display:"flex",
-          }}>
-          <CardHeader title={tag} sx={{p:0}}/>
-          <Buton />
-          </div> 
-          <CardContent sx={{p:0}}>
-          <Typography variant="body2" sx={{
-            color: 'text.secondary',
-            fontSize: 15,
-          }}>
-          詳細
-          </Typography>
-          </CardContent>
+            <div style={{
+              display:"flex",
+            }}>
+              <CardHeader title={title} sx={{p:0}}/>
+              <Buton />
+            </div> 
+            <CardContent sx={{p:0}}>
+              <Typography variant="body2" sx={{
+                color: 'text.secondary',
+                fontSize: 15,
+              }}>
+                {Detail[idx] || ''}<br/>
+                タグ:{tags[idx] || ''}
+              </Typography>
+            </CardContent>
           </Card>
         ))}
       </ul>

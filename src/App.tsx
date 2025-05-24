@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import ListBox from "./components/ListBox";
 import Footer from "./Footer";
 import Add from "./components/Add";
+import SideBar from "./components/SideBar";
 
 
 
@@ -17,9 +18,12 @@ function App() {
   return (
     <>
       <Header onSearch={handleSearch} />
-      <Add />
+      <div className="main">
+      <SideBar />
       <div className="box">
+        <Add />
         <ListBox />
+      </div>
       </div>
       <Footer />
     </>
