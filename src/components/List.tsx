@@ -10,7 +10,7 @@ function List() {
           color: 'text.secondary',
           fontSize: 15,
           }}>
-          やること
+          詳細
         </Typography>
       </CardContent>
     </Card>

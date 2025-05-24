@@ -4,7 +4,9 @@ import { useState } from "react";
 import Header from "./components/Header";
 import ListBox from "./components/ListBox";
 import Footer from "./Footer";
-import Tag from "./components/Tag";
+import Add from "./components/Add"
+import Navi from "./components/Navi"
+
 
 
 function App() {
@@ -17,8 +19,10 @@ function App() {
   return (
     <>
       <Header onSearch={handleSearch} />
-      <Tag />
-      <ListBox />
+      <Add />
+      <div className="box">
+        <ListBox />
+      </div>
       <Footer />
     </>
   );

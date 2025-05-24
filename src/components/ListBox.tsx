@@ -1,7 +1,16 @@
-import List from "./List";
-import { Box } from "@mui/material";
+import { useState } from "react";
+import { Box,Card, Typography, CardContent, CardHeader, } from '@mui/material';
 
-function ListBox() {
+// Removed unused and incomplete ListsBox function
+
+
+const ListBox: React.FC = () => {
+  const [tags] = useState<string[]>(() => {
+    const saved = localStorage.getItem('tags');
+    return saved ? JSON.parse(saved) : [];
+  });
+
+
   return (
     <Box
       sx={{
@@ -11,51 +20,25 @@ function ListBox() {
         m: 4,
       }}
     >
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-      <List />
-    </Box>
+      <ul>
+        {tags.map((tag) => (
+          <Card sx={{
+            m:2,px:4,py:2
+          }}>
+          <CardHeader title={tag} sx={{p:0}}/> 
+          <CardContent sx={{p:0}}>
+          <Typography variant="body2" sx={{
+            color: 'text.secondary',
+            fontSize: 15,
+          }}>
+          詳細
+          </Typography>
+          </CardContent>
+          </Card>
+        ))}
+      </ul>
+    </Box>  
   );
-}
+};
 
 export default ListBox;
