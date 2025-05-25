@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
+import type { Todo } from '../App';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#fff',
@@ -14,24 +14,19 @@ const Item = styled(Paper)(({ theme }) => ({
   }),
 }));
 
-const SideBar: React.FC = () => {
-  const [items, setItems] = useState<string[]>([]);
+interface SideBarProps {
+  todos: Todo[];
+}
 
-  // 初回マウント時にローカルストレージから配列を取得
-  useEffect(() => {
-    const saved = localStorage.getItem('tags');
-    if (saved) {
-      setItems(JSON.parse(saved));
-    }
-  }, []);
+const SideBar: React.FC<SideBarProps> = ({ todos }) => {
+  // Tagの重複を除いて一覧化
+  const uniqueTags = Array.from(new Set(todos.map(todo => todo.Tag)));
 
   return (
-    <div style={{width:"20%",
-      margin:"20px"
-    }}>
+    <div style={{width:"20%", margin:"20px"}}>
       {/* タグの横並び表示 */}
       <Stack direction="row" spacing={2} flexWrap="wrap">
-        {items.map((tag, idx) => (
+        {uniqueTags.map((tag, idx) => (
           <Item key={idx}>{tag}</Item>
         ))}
       </Stack>
