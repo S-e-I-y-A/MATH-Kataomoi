@@ -15,23 +15,23 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const SideBar: React.FC = () => {
-  const [items, setItems] = useState<string[]>([]);
+  const [tags, setTags] = useState<string[]>([]);
 
-  // 初回マウント時にローカルストレージから配列を取得
   useEffect(() => {
-    const saved = localStorage.getItem('tags');
+    const saved = localStorage.getItem('todos');
     if (saved) {
-      setItems(JSON.parse(saved));
+      const todos = JSON.parse(saved) as { Title: string; Detail: string; Tag: string }[];
+      // Tagの重複を除いて一覧化
+      const uniqueTags = Array.from(new Set(todos.map(todo => todo.Tag)));
+      setTags(uniqueTags);
     }
   }, []);
 
   return (
-    <div style={{width:"20%",
-      margin:"20px"
-    }}>
+    <div style={{width:"20%", margin:"20px"}}>
       {/* タグの横並び表示 */}
       <Stack direction="row" spacing={2} flexWrap="wrap">
-        {items.map((tag, idx) => (
+        {tags.map((tag, idx) => (
           <Item key={idx}>{tag}</Item>
         ))}
       </Stack>
