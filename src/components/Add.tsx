@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Paper, Tooltip, IconButton } from '@mui/material';
 import { Add as AddIcon } from '@mui/icons-material';
+import type { Todo } from '../App';
 
-const Add: React.FC = () => {
-  const [todos, setTodos] = useState<{ Title: string; Detail: string; Tag: string }[]>(() => {
-    const saved = localStorage.getItem('todos');
-    return saved ? JSON.parse(saved) : [];
-  });
+interface AddProps {
+  todos: Todo[];
+  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+}
+
+const Add: React.FC<AddProps> = ({ todos, setTodos }) => {
   const [title, setTitle] = useState('');
   const [detail, setDetail] = useState('');
   const [tag, setTag] = useState('');
@@ -14,9 +16,7 @@ const Add: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!title.trim() || !detail.trim() || !tag.trim()) return;
-    const newTodos = [...todos, { Title: title.trim(), Detail: detail.trim(), Tag: tag.trim() }];
-    setTodos(newTodos);
-    localStorage.setItem('todos', JSON.stringify(newTodos));
+    setTodos([...todos, { Title: title.trim(), Detail: detail.trim(), Tag: tag.trim() }]);
     setTitle('');
     setDetail('');
     setTag('');
