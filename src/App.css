@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background: url("/bg.png") center/cover no-repeat;
 }
 .box {
   display: flex;
@@ -7,7 +8,8 @@ body {
   flex-direction: column;
 }
 .main {
-  display: flex;
-  background: url("/bg.png") center/cover no-repeat;
+  /* display: flex; */
+  margin: 0;
+  /* background: url("/bg.png") center/cover no-repeat; */
   min-height: 100vh;
 }

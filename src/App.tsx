@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import ListBox from "./components/ListBox";
 import Footer from "./Footer";
-import Add from "./components/Add";
 import SideBar from "./components/SideBar";
+import Add from "./components/Add";
 
 export type Todo = { Title: string; Detail: string; Tag: string };
 
@@ -25,11 +25,10 @@ function App() {
 
   return (
     <>
-      <Header onSearch={handleSearch} />
+      <Header onSearch={handleSearch} todos={todos} setTodos={setTodos} />
       <div className="main">
         <SideBar todos={todos} />
         <div className="box">
-          <Add todos={todos} setTodos={setTodos} />
           <ListBox todos={todos} setTodos={setTodos} />
         </div>
       </div>
