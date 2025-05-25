@@ -1,12 +1,13 @@
 body {
   margin: 0;
 }
-.box{
+.box {
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
-.main{
+.main {
   display: flex;
-  
+  background: url("/bg.png") center/cover no-repeat;
+  min-height: 100vh;
 }
